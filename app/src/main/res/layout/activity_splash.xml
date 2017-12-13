@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_loading"
+        android:layout_marginBottom="82dp"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_loading"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/tv_count"
+            android:text="跳过"
+            android:background="@drawable/shap_cutdown"
+            android:alpha="0.3"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:layout_alignParentRight="true"
+            android:layout_margin="15dp"
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:src="@drawable/loading_flag"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="218dp"
+        android:layout_height="77.5dp" />
+
+</RelativeLayout>
