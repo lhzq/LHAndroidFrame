@@ -8,13 +8,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.jimtrency.lh.androidframe.presenter.BasePresenter;
+
 /**
- * @author qiujuer
+ * @author jimTrency
  *
  */
 
-public abstract class Fragment extends android.support.v4.app.Fragment {
+public abstract class Fragment<T,p extends BasePresenter<T>> extends android.support.v4.app.Fragment {
     protected View mRoot;
+    protected p mPresenter;
 
     // 标示是否第一次初始化数据
     protected boolean mIsFirstInitData = true;
@@ -30,9 +33,9 @@ public abstract class Fragment extends android.support.v4.app.Fragment {
         if (mRoot == null) {
             int layId = getContentLayoutId();
             // 初始化当前的跟布局，但是不在创建时就添加到container里边
-            View root = inflater.inflate(layId, container, false);
-            initWidget(root);
-            mRoot = root;
+            mRoot = inflater.inflate(layId, container, false);
+            initWidget();
+            initPresenter();
         } else {
             if (mRoot.getParent() != null) {
                 // 把当前Root从其父控件中移除
@@ -69,7 +72,7 @@ public abstract class Fragment extends android.support.v4.app.Fragment {
     /**
      * 初始化控件
      */
-    protected abstract void initWidget(View root);
+    protected abstract void initWidget();
 
     /**
      * 初始化数据
@@ -92,5 +95,26 @@ public abstract class Fragment extends android.support.v4.app.Fragment {
         T result= (T) mRoot.findViewById(id);
         return result;
     }
+
+    private void initPresenter(){
+        //创建Presenter
+        mPresenter=createPresenter();
+
+        //内存写了，关联View
+        if (mPresenter!=null){
+            mPresenter.attachView((T)this);
+        }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        //删除关联
+        if (null!=mPresenter){
+            mPresenter.detachView();
+        }
+    }
+
+    protected abstract p createPresenter();
 
 }

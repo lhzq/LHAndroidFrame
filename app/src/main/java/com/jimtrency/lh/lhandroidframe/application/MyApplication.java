@@ -2,6 +2,7 @@ package com.jimtrency.lh.lhandroidframe.application;
 
 import android.app.Application;
 
+import com.squareup.leakcanary.LeakCanary;
 import com.tencent.smtt.sdk.QbSdk;
 
 /**
@@ -14,6 +15,9 @@ public class MyApplication extends Application{
         super.onCreate();
         //x5内核初始化接口
         QbSdk.initX5Environment(getApplicationContext(),  null);
+
+        //检测内存泄漏
+        LeakCanary.install(this);
     }
 
 }

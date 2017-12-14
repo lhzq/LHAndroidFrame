@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 
 import com.jimtrency.lh.androidframe.presenter.BasePresenter;
@@ -13,7 +14,7 @@ import com.jimtrency.lh.androidframe.presenter.BasePresenter;
  * Created by Administrator on 2017/10/22.
  */
 
-public abstract class MVPBaseActivity<T,p extends BasePresenter<T>> extends Activity {
+public abstract class MVPBaseActivity<T,p extends BasePresenter<T>> extends FragmentActivity {
 
     protected p mPresenter;
     public Context mContext;
@@ -96,8 +97,5 @@ public abstract class MVPBaseActivity<T,p extends BasePresenter<T>> extends Acti
     }
 
     protected abstract p createPresenter();
-
-
-
 
 }

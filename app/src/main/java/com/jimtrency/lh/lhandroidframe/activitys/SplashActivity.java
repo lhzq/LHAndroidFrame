@@ -41,7 +41,7 @@ public class SplashActivity extends MVPBaseActivity<ISplashView, SplashPresenter
         super.initWidows();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
-   
+
     @Override
     protected int getContentLayoutId() {
         return R.layout.activity_splash;
@@ -80,7 +80,7 @@ public class SplashActivity extends MVPBaseActivity<ISplashView, SplashPresenter
             public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
                 //倒计时，时间一到跳到主界面
                 downUtil = new CountDownUtil();
-                downUtil.countDown(10, tvCount, new CountDownUtil.CountDownClickListener() {
+                downUtil.countDown(5, tvCount, new CountDownUtil.CountDownClickListener() {
                     @Override
                     public void click() {
                         gotoMainActivity();

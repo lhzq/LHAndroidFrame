@@ -6,8 +6,8 @@ import android.view.KeyEvent;
 import com.jimtrency.lh.androidframe.activitys.MVPBaseActivity;
 import com.jimtrency.lh.androidframe.presenter.BasePresenter;
 import com.jimtrency.lh.lhandroidframe.R;
-import com.jimtrency.lh.lhandroidframe.widget.webview.CustomChromeClient;
-import com.jimtrency.lh.lhandroidframe.widget.webview.X5Webview;
+import com.jimtrency.lh.lhandroidframe.wdiget.webview.CustomChromeClient;
+import com.jimtrency.lh.lhandroidframe.wdiget.webview.X5Webview;
 
 /**
  * Created by Administrator on 2017/11/20.
@@ -25,6 +25,7 @@ public class WebActivity extends MVPBaseActivity{
     protected void initWidget() {
         x5Webview= (X5Webview) F(R.id.x5webview);
         x5Webview.setWebChromeClient(new CustomChromeClient());
+
     }
 
 
