@@ -7,6 +7,5 @@ package com.jimtrency.lh.lhandroidframe.constant;
 public class Net {
     public static boolean isTest = false;// 是否为测试环境
 
-    //服务器地址 http://183.230.101.153:18080/
 
 }
