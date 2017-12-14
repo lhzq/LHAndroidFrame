@@ -47,10 +47,7 @@ public class SecondFragment extends Fragment implements View.OnClickListener{
     @Override
     protected void initData() {
         super.initData();
-
     }
-
-
 
     @Override
     protected BasePresenter createPresenter() {
